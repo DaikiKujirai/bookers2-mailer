@@ -8,38 +8,40 @@
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
   </tr>
-  <p><%= "フォロー数: #{user.follower.count}" %></p>
-  <p><%= "フォロワー数: #{user.followed.count}" %></p>
+  <tr>
+    <th>follows</th>
+    <td><%= link_to "#{user.follower.count}", following_user_user_path(user) %></td>
+  </tr>
+  <tr>
+    <th>follower</th>
+    <td><%= link_to "#{user.followed.count}", follower_user_user_path(user) %></td>
+  </tr>
+</table>
   <% unless user == current_user %>
     <% if current_user.following?(user) %>
-      <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+      <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST, class:"btn btn-info mb-3" %>
     <% else %>
-      <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+      <%= link_to 'フォローする', follow_path(user.id), method: :POST, class:"btn btn-success mb-3" %>
     <% end %>
   <% end %>
 
-  <% user.following_user.where.not(id: current_user.id).each do |user| %>
-      <% if current_user.following?(user) %>
-        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
-      <% else %>
-        <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
-      <% end %>
-    </p>
-  <% end %>
+  <%# user.following_user.where.not(id: current_user.id).each do |user| %>
+    <%# if current_user.following?(user) %>
+      <%#= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+    <%# else %>
+      <%#= link_to 'フォローする', follow_path(user.id), method: :POST %>
+    <%# end %>
+  <%# end %>
 
-  <% user.follower_user.where.not(id: current_user.id).each do |user| %>
-    <p>
-      <%= "id: #{user.id} email: #{user.email}" %>
-      <% if current_user.following?(user) %>
-        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
-      <% else %>
-        <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
-      <% end %>
-      <%= link_to "show", user_path(user) %>
-    </p>
-  <% end %>
-</table>
-
+  <%# user.follower_user.where.not(id: current_user.id).each do |user| %>
+    <%#= "id: #{user.id} email: #{user.email}" %>
+    <%# if current_user.following?(user) %>
+      <%#= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+    <%# else %>
+      <%#= link_to 'フォローする', follow_path(user.id), method: :POST %>
+    <%# end %>
+    <%#= link_to "show", user_path(user) %>
+  <%# end %>
 <div class='row'>
   <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
 </div>
