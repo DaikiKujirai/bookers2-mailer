@@ -1,2 +1,2 @@
-$('#comment_area').html("<%= escape_javascript(render 'comments', comments: @comments) %>");
-$('#comment_form').html("<%= escape_javascript(render 'comment_form',  comment: @comment) %>");
+$('#comments').html("<%= j(render 'comment', locals: { book: @book }) %>")
+$('text_area').val('')
