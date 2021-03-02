@@ -1,2 +1,5 @@
 $('#comments').html("<%= j(render 'comment', locals: { book: @book }) %>")
+<!--id="comments"に作用する、部分テンプレート'comment'の中を@bookという変数を受け取って-->
+<!--jsの中の変数は@付きしか使えない-->
 $('textarea').val('')
+<!--投稿欄の値を消す-->
