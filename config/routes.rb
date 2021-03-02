@@ -13,5 +13,8 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about'
   resources :relationships, only: [:create, :destroy]
   post 'follow/:id' => 'relationships#follow', as: 'follow'
-post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
+  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
+  
+  get 'search' => 'searches#search'
+  
 end
