@@ -1,1 +1,1 @@
-$('#book_comment_<%= @book_comment.id %>').remove();
+$('#comments').html("<%= j(render 'comment', locals: { book: @book}) %>")
