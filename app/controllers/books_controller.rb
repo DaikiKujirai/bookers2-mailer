@@ -2,7 +2,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    # @book.user_id = current_user.id
+    # @book.user_id = current_user.id 不必要？
     @book_new = Book.new
     @book_comment = BookComment.new
   end

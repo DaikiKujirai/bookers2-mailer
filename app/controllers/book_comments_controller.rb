@@ -8,6 +8,7 @@ class BookCommentsController < ApplicationController
   end
 
   def destroy
+    # js.erbで使う変数はコントローラないに定義しなければならない
     @book = Book.find(params[:book_id])
     BookComment.find_by(id: params[:id], book_id: params[:book_id]).destroy
     # destroyアクションにbook_idを渡した
