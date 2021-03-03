@@ -60,4 +60,12 @@ class User < ApplicationRecord
   # ~.prefecture_nameで都道府県名を参照出来る様にする。
   # 例) @user.prefecture_nameで該当ユーザーの住所(都道府県)を表示出来る。
 
+  after_create :send_email_for_new_registration
+
+  private
+
+  def send_email_for_new_registration
+    UserMailer.new_registration_email(self).deliver
+  end
+
 end
