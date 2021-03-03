@@ -37,11 +37,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :profile_image_id
       t.timestamps null: false
 
-      t.integer :postcode, null: false
-      t.string :prefecture_code, null: false
-      t.string :city, null: false
-      t.string :street, null: false
-      t.string :other_address
     end
 
     add_index :users, :email,                unique: true

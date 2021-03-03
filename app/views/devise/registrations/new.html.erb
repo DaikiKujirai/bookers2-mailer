@@ -18,7 +18,7 @@
         </div>
         <div class="field">
           <%= f.label :prefecture_name, 'Prefecture code' %><br>
-        <!-- 47都道府県をプルダウンメニューで表示-->
+         <!--47都道府県をプルダウンメニューで表示-->
           <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' } %>
         </div>
         <div class="field">
@@ -27,7 +27,7 @@
         </div>
         <div class="field">
           <%= f.label :address_street, 'Street' %><br>
-          <%= f.text_field :address_stree, autocomplete: 'address_street' %>
+          <%= f.text_field :address_street, autocomplete: 'address_street' %>
         </div>
         <div class="field">
           <%= f.label :password %>

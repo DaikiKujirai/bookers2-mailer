@@ -60,8 +60,4 @@ class User < ApplicationRecord
   # ~.prefecture_nameで都道府県名を参照出来る様にする。
   # 例) @user.prefecture_nameで該当ユーザーの住所(都道府県)を表示出来る。
 
-  validates :postcode, presence: true
-  validates :prefecture_code, presence: true
-  validates :city, presence: true
-  validates :street, presence: true
 end

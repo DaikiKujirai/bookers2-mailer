@@ -13,12 +13,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sigh_up, keys: [
-      :email,
-      :postcode,
-      :prefecture_name,
-      :address_city,
-      :address_street
-    ])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :postcode, :prefecture_code, :address_city, :address_street])
   end
+
 end
