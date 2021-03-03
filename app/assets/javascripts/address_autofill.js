@@ -8,3 +8,6 @@ $(function() {
     }
   });
 });
+// アドレスを自動入力させる為のコード
+// githubからjquery.jpostalファイルをダウンロード
+// app/assets/javascripts直下にjquery.jpostal.jsを入れる
