@@ -26,7 +26,7 @@
                 <%= render partial: 'favorites/favorite', locals: {book: @book} %>
               </div>
             </td>
-          <td>コメント件数：<%= @book.book_comments.count %></td>
+          <td class="comments-count">コメント件数：<%= @book.book_comments.count %></td>
         </tr>
       </table>
       <div id="comments">
@@ -34,8 +34,8 @@
       </div>
       <div id="new-comment">
         <%= form_with model:[@book, @book_comment], remote: true do |f| %>
-          <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-          <%= f.submit "送信する" %>
+          <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class:"form-control" %>
+          <%= f.submit "送信する", class:"btn btn-secondary mt-3" %>
         <% end %>
       </div>
     </div>
